@@ -30,6 +30,7 @@ services:
             - "9000:9000"
         volumes:
             - ./app:/var/www/project
+            - phptools:/opt/bin
         networks:
             - nginx-php81-mysql8-node
 
@@ -58,4 +59,7 @@ services:
         environment:
             - PMA_ARBITRARY=1
         networks:
-            - nginx-php81-mysql8-node
+            - nginx-php81-mysql8-node 
+volumes:
+    # Declare a named volume so it can be remounted
+    phptools:
